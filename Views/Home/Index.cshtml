@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="text-center m-3">Howdy yall, this is the Front Page<h1>
+
+@model Survey
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div>
+        <form asp-action="CreateSurvey" method="post">
+            <div>
+                <label asp-for="Titles">Your Name:</label>
+                <input placeholder="I am..." asp-for="Titles">
+                <span asp-validation-for="Titles" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Locations">Dojo Location</label>
+                <select asp-for="Locations" id="">
+                    <option value="" hidden>Select A City</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Salt Lake City">Salt Lake City</option>
+                    <option value="Vagas">Vagas</option>
+                </select>
+                <span asp-validation-for="Locations" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Languages">Favorite Language:</label>
+                <select asp-for="Languages" id="">
+                    <option value=""hidden>Select a Programming Language</option>
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="C#">C#</option>
+                    <option value="Java">Java</option>
+                </select>
+                <span asp-validation-for="Languages" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Comments">Comments</label>
+                <textarea asp-for="Comments" id="" cols="60" rows="10" placeholder="Put comment here..."></textarea>
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
